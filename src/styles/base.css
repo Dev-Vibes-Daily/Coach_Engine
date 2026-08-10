@@ -1,0 +1,172 @@
+/* src/styles/base.css — SHARED FOUNDATION: design tokens + component styles. */
+/* SHARED FOUNDATION — same design tokens & base as The Dig, so Nourish
+   is a visual sibling. Nourish-specific components added at the bottom. */
+
+:root {
+  --cream: #F7F1E3;
+  --paper: #FDFBF4;
+  --ink: #26221B;
+  --ink-soft: #5A5244;
+  --line: #D9CFBA;
+  --rust: #8A4B2A;
+  --rust-soft: #F0E2D6;
+  --moss: #4E6B45;
+  --moss-soft: #E4EBDD;
+  --ledger: #EDEAF2;
+  --ledger-ink: #4A4460;
+  --gold: #A9852F;
+  --gold-soft: #F1E7CC;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-size: 16px; line-height: 1.6;
+  padding: 28px 20px 80px;
+}
+
+h1, h2, h3, .serif { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; }
+
+.wrap { max-width: 1080px; margin: 0 auto; }
+.rule { border: none; border-top: 1px solid var(--line); margin: 20px 0; }
+.hidden { display: none !important; }
+.empty { color: var(--ink-soft); font-size: 13.5px; font-style: italic; }
+
+/* ── Header ── */
+header.top { margin-bottom: 22px; }
+header.top h1 { font-size: 44px; letter-spacing: .5px; }
+header.top .sub { font-size: 15px; text-transform: uppercase; letter-spacing: .22em; color: var(--moss); margin-top: 2px; font-weight: 600; }
+header.top .tag { color: var(--ink-soft); margin-top: 8px; max-width: 640px; }
+
+/* ── Layout ── */
+.grid { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 24px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+.side .card { margin-bottom: 18px; }
+.side h3 { font-size: 17px; margin-bottom: 10px; }
+
+/* ── Disclaimer banner ── */
+.disclaimer {
+  background: var(--gold-soft); border: 1px solid var(--gold);
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 20px;
+  font-size: 13px; color: #5f4a1a; line-height: 1.5;
+}
+.disclaimer b { color: #3f3110; }
+
+/* ── Buttons ── */
+button {
+  font-family: inherit; font-size: 15px; font-weight: 600;
+  background: var(--ink); color: var(--cream);
+  border: none; border-radius: 8px; padding: 10px 18px;
+  cursor: pointer; transition: transform .12s, opacity .12s;
+}
+button:hover { opacity: .88; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 3px solid var(--moss); outline-offset: 2px; }
+button.secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+button.quiet { background: transparent; color: var(--ink-soft); border: 1px solid var(--line); font-weight: 500; font-size: 13.5px; padding: 6px 12px; }
+button.moss { background: var(--moss); }
+button.linkish { background: none; border: none; color: var(--moss); font-weight: 600; font-size: 14px; padding: 0; text-decoration: underline; cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+
+/* ── Inputs ── */
+textarea, input[type=text] {
+  width: 100%; font-family: inherit; font-size: 15.5px; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--line); border-radius: 8px; padding: 12px 14px;
+}
+textarea:focus, input:focus { outline: none; border-color: var(--moss); }
+textarea { min-height: 70px; resize: vertical; }
+label.field { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); font-weight: 600; margin-bottom: 6px; }
+
+/* ── Log entry (your food/habit entries) ── */
+.log-entry { margin-bottom: 16px; }
+.you {
+  background: var(--cream); border: 1.5px solid var(--ink);
+  border-radius: 10px 10px 2px 10px; padding: 12px 16px; margin-left: 10%;
+}
+.you .who { font-size: 11.5px; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-soft); font-weight: 700; margin-bottom: 3px; display: flex; justify-content: space-between; }
+
+/* ── Coach response (Estimate / Swap / Pattern) ── */
+.coach {
+  background: var(--paper); border: 1px solid var(--line);
+  border-left: 4px solid var(--moss);
+  border-radius: 2px 10px 10px 2px; padding: 14px 16px; margin-right: 6%;
+}
+.coach .part { margin-bottom: 10px; }
+.coach .part:last-child { margin-bottom: 0; }
+.coach .lbl { font-size: 11.5px; text-transform: uppercase; letter-spacing: .2em; font-weight: 800; display: block; margin-bottom: 2px; }
+.coach .lbl.estimate { color: var(--gold); }
+.coach .lbl.swap { color: var(--moss); }
+.coach .lbl.pattern { color: var(--rust); }
+
+/* ── Macro chips ── */
+.macros { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.macro { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 3px 11px; font-size: 13px; font-weight: 600; }
+.macro .mv { color: var(--ink); }
+.macro .ml { color: var(--ink-soft); font-weight: 500; font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; }
+.macro.cal { background: var(--gold-soft); border-color: var(--gold); }
+
+/* ── Log panel (sidebar) ── */
+.log-list { max-height: 320px; overflow-y: auto; }
+.log-list .item { border-bottom: 1px dashed var(--line); padding: 8px 0; font-size: 14px; }
+.log-list .item .ts { color: var(--ink-soft); font-size: 12px; font-style: italic; }
+.log-list .item .cal { color: var(--gold); font-weight: 700; font-size: 12.5px; }
+
+/* ── Day tally ── */
+.tally { display: flex; flex-direction: column; gap: 8px; }
+.tally .row { display: flex; justify-content: space-between; align-items: baseline; }
+.tally .row .k { font-size: 13px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+.tally .row .v { font-size: 20px; font-weight: 700; }
+.tally .row .v.cal { color: var(--gold); }
+.tally .note { font-size: 12.5px; color: var(--ink-soft); font-style: italic; margin-top: 4px; }
+
+/* ── Loading / error ── */
+.loading { display: flex; align-items: center; gap: 10px; color: var(--ink-soft); font-style: italic; font-size: 14.5px; margin: 10px 0; }
+.spinner { width: 16px; height: 16px; border: 2.5px solid var(--line); border-top-color: var(--moss); border-radius: 50%; animation: spin .8s linear infinite; flex: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.errbox { background: #F6E3DE; border: 1.5px solid #94402B; border-radius: 8px; padding: 12px 14px; margin: 12px 0; font-size: 14.5px; color: #5F2A1C; }
+.errbox button { margin-top: 8px; }
+.banner { background: var(--moss-soft); border: 1.5px solid var(--moss); border-radius: 8px; padding: 10px 14px; margin: 12px 0; font-size: 14.5px; }
+
+/* ── Review (periodic pattern summary) ── */
+.review .part { margin-bottom: 14px; }
+.review .lbl { font-size: 12px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; color: var(--moss); display: block; margin-bottom: 4px; }
+.review .focus { background: var(--moss-soft); border: 1.5px solid var(--moss); border-radius: 8px; padding: 12px 14px; }
+
+/* ── Past reviews (archive) ── */
+.pastlist { display: flex; flex-direction: column; gap: 12px; }
+.pastcard { background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 16px 18px; cursor: pointer; transition: border-color .15s; }
+.pastcard:hover { border-color: var(--moss); }
+.pastcard .ptop { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.pastcard .prange { font-size: 16px; font-weight: 600; flex: 1; }
+.pastcard .meta { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+.badge { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 800; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.badge.awaiting { background: #F1EAD2; color: #7A6A2B; }
+.badge.stuck { background: var(--moss-soft); color: var(--moss); }
+.badge.slipped { background: #F6E3DE; color: #94402B; }
+.badge.mixed { background: var(--ledger); color: var(--ledger-ink); }
+
+/* ── Follow-up ── */
+.fu-entry { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; background: #fff; }
+.fu-entry .fu-meta { font-size: 11.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 800; color: var(--ink-soft); margin-bottom: 4px; }
+.fu-entry .fu-coach { border-left: 3px solid var(--moss); padding-left: 10px; margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+.fu-form { border: 1.5px dashed var(--line); border-radius: 10px; padding: 14px; background: var(--cream); margin-top: 10px; }
+.fu-form label.field { margin-top: 10px; }
+
+/* ── Read-first / intro ── */
+.readfirst { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+.readfirst summary { cursor: pointer; padding: 14px 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.readfirst summary::-webkit-details-marker { display: none; }
+.readfirst summary::after { content: "▸"; transition: transform .2s; }
+.readfirst[open] summary::after { transform: rotate(90deg); }
+.readfirst .body { padding: 0 18px 18px; color: var(--ink-soft); }
+.readfirst .principle { margin-top: 10px; }
+.readfirst .principle b { color: var(--ink); }

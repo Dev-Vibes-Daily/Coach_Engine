@@ -1,0 +1,15 @@
+{
+  "name": "coach-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A domain-agnostic foundation for building AI coaching apps. A new coach is one config file.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.1.1"
+  }
+}
