@@ -80,6 +80,6 @@ The dev server proxies API calls and attaches your key **server-side**, so it ne
 
 <div align="center">
 
-*Built by Misti Lantz · &copy; MindXpansion, LLC*
+*Designed & created by Misti Lantz · &copy; MindXpansion, LLC*
 
 </div>
