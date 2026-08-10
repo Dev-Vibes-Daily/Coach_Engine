@@ -14,13 +14,7 @@
 
 Every coach shares one rhythm:
 
-```mermaid
-flowchart LR
-    L["📝 Log an entry"] --> C(("🧭 Coach responds<br/>in N parts"))
-    C --> L
-    L -. over a stretch .-> R["🔍 Review<br/>patterns · working · focus"]
-    R --> F["🔁 Follow-up<br/>did the focus stick?"]
-```
+> **📝 Log an entry** &nbsp;→&nbsp; **🧭 Coach responds** in the parts you define &nbsp;→&nbsp; *(over a stretch)* &nbsp;→&nbsp; **🔍 Review** &nbsp;·&nbsp; patterns, working, focus &nbsp;→&nbsp; **🔁 Follow-up** &nbsp;·&nbsp; did it stick?
 
 The **engine** owns that rhythm. A **coach** just supplies its own words. So the core (`engine`, `ui`, `storage`, `coach`) never changes, and a new coach lives entirely in **one config file**.
 
@@ -79,12 +73,13 @@ The dev server proxies API calls and attaches your key **server-side**, so it ne
 
 - **The Dig** — root-cause practice for analysts (5 Whys, evidence-grounded)
 - **Nourish** — a daily food & habit coach
+- **Advocate** — a self-advocacy coach for medical appointments
 - *…yours next.*
 
 ---
 
 <div align="center">
 
-*Built by Misti Lantz · © MindXpansion, LLC*
+*Built by Misti Lantz · &copy; MindXpansion, LLC*
 
 </div>
