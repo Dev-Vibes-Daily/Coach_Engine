@@ -4,7 +4,7 @@
 
 ### One foundation. Every coach is a config file.
 
-*The domain-agnostic core behind [The Dig](https://github.com/Dev-Vibes-Daily/TheDig) and [Nourish](https://github.com/Dev-Vibes-Daily/Nourish), extracted into a template you can fork to spin up a new AI coach in an afternoon.*
+*The domain-agnostic core behind The Dig and Nourish, extracted into a template you can fork to spin up a new AI coach in an afternoon.*
 
 </div>
 
@@ -75,6 +75,10 @@ The dev server proxies API calls and attaches your key **server-side**, so it ne
 - **Nourish** — a daily food & habit coach
 - **Advocate** — a self-advocacy coach for medical appointments
 - *…yours next.*
+
+## License
+
+MIT — see [LICENSE](LICENSE). Fork it, build your coach, ship it.
 
 ---
 
